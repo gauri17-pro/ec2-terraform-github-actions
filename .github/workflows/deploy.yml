@@ -20,6 +20,6 @@ jobs:
         with:
           terraform_wrapper: false
       - name: Terraform Init
-        uses: terraform init -backend=false
+        run: terraform init -backend=false
         working-directory: ./TerraformEC2
       
