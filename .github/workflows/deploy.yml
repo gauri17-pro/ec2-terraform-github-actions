@@ -30,4 +30,8 @@ jobs:
         id: plan
         run: terraform plan
         working-directory: ./TerraformEC2
+      - name: Terraform Apply
+        id: apply
+        run: terraform apply
+        working-directory: ./TerraformEC2
       
