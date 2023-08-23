@@ -20,6 +20,11 @@ jobs:
         with:
           terraform_wrapper: false
       - name: Terraform Init
+        id: init
         run: terraform init -backend=false
+        working-directory: ./TerraformEC2
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan
         working-directory: ./TerraformEC2
       
