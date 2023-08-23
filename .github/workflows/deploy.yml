@@ -13,4 +13,5 @@ jobs:
   build-infra:
     runs-on: ubuntu-latest
     steps:
-      echo "Hey you go girl!!"
+      - name: Checkout
+        uses: actions/checkout@v2
