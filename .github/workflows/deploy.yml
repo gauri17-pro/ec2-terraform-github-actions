@@ -23,6 +23,9 @@ jobs:
         id: init
         run: terraform init -backend=false
         working-directory: ./TerraformEC2
+      - name: Checking the files created
+        run: ls -la
+        working-directory: ./TerraformEC2
       - name: Terraform Plan
         id: plan
         run: terraform plan
