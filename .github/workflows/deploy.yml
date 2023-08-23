@@ -18,6 +18,6 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
       - name: Terraform Init
-        uses: terraform init
+        uses: terraform init -backend=false
         working-directory: ./TerraformEC2
       
