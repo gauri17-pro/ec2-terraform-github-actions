@@ -19,4 +19,5 @@ jobs:
         uses: hashicorp/setup-terraform@v2
       - name: Terraform Init
         uses: terraform init
+        working-directory: Terraform EC2
       
