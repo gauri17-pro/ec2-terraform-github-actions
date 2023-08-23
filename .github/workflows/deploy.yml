@@ -1,0 +1,16 @@
+name: CI/CD with Terraform
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  push:
+    Branches: 
+      - dev 
+
+env:
+  AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
+
+jobs:
+  build-infra:
+    runs-on: ubuntu-latest
+    steps:
+      echo "Hey you go girl!!"
