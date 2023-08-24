@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
     Branches: 
-      - dev 
+      - main 
 
 env:
   AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
@@ -11,6 +11,32 @@ env:
 
 jobs:
   build-infra:
+    name: terraform-cicd
     runs-on: ubuntu-latest
     steps:
-      echo "Hey you go girl!!"
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_wrapper: false
+      - name: Terraform Init
+        id: init
+        run: terraform init -backend=false
+        working-directory: ./TerraformEC2
+      - name: Checking the files created
+        run: ls -la
+        working-directory: ./TerraformEC2
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan
+        working-directory: ./TerraformEC2
+      # - name: Terraform Apply
+      #   id: apply
+      #   run: terraform apply --auto-approve
+      #   working-directory: ./TerraformEC2
+      - name: Terraform Destroy 
+        id: destroy
+        run: terraform destroy --auto-approve
+        working-directory: ./TerraformEC2
+      
