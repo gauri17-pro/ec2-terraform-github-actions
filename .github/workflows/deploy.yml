@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
     Branches: 
-      - dev 
+      - main 
 
 env:
   AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
@@ -11,6 +11,7 @@ env:
 
 jobs:
   build-infra:
+    name: terraform-cicd
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
